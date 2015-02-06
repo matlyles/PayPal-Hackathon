@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui"/>
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    
+    <link rel="apple-touch-startup-image" href="img/splash-screen.png" media="screen and (max-device-width: 320px)" />
+    <link rel="apple-touch-startup-image" href="images/splash/splash-screen@2x.png" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" /> 
+    <link rel="apple-touch-startup-image" sizes="640x1096" href="images/splash/splash-screen@3x.png" />
+
+    <title>PayPal Exploration</title>
+
+    <!-- Stylesheets -->
+    <link href="styles/reset.css" rel="stylesheet" type="text/css">
+   
+
+    <style type="text/css">
+
+    body, html {
+      background: #f5f5f5;
+      color: #fff;
+      font-family:HelveticaNeue-Regular,"Helvetica Neue Regular","Helvetica Neue",Helvetica,Arial,sans-serif;
+    }
+    a {
+      text-decoration: none;
+    }
+    .engage-bar {
+      background: #009cde;
+      height: 120px;
+      position: relative;
+    }
+    .engage-bar .arrow-down {
+      z-index: 5;
+      position: absolute;
+      bottom:-12px;
+      left: 200px;
+      width: 30px;
+      height:30px;
+      background: #009cde;
+      -moz-transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+    .engage {
+      position: relative;
+        -webkit-transition: all 0.8s ease-in-out;
+        -moz-transition: all 0.8s ease-in-out;
+        -ms-transition: all 0.8s ease-in-out;
+        -o-transition: all 0.8s ease-in-out;
+        transition: all 0.8s ease-in-out;
+        background: #1a2937;
+        background: url(img/shop-back.png) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        min-height:461px !important;
+  
+    }
+    .engage .contain {
+      padding:0;
+       background: -webkit-linear-gradient(90deg, rgba(93,65,87,0.3) 10%, rgba(168,202,186,0.3) 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, rgba(93,65,87,0.4) 10%, rgba(168,202,186,0.4) 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, rgba(93,65,87,0.4) 10%, rgba(168,202,186,0.4) 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, rgba(93,65,87,0.4) 10%, rgba(168,202,186,0.4) 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, rgba(93,65,87,0.4) 10%, rgba(168,202,186,0.4) 90%); /* W3C */
+        
+  min-height:461px !important;
+
+}
+.shop-titles {
+  padding:120px 20px 20px 10px;
+  height: 220px;
+  width: 100%;
+
+  background: -moz-linear-gradient(top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.5)), color-stop(100%,rgba(0,0,0,0)));
+background: -webkit-linear-gradient(top, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
+background: -o-linear-gradient(top, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
+background: -ms-linear-gradient(top, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
+background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
+        
+}
+    h1.shop-title {
+      font-family:HelveticaNeue-Light,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-weight: 200;
+      text-align: left;
+      font-size: 2.1em;
+      letter-spacing: 1px;
+      margin: 0 0 10px 50px;
+    }
+    h3.sub-text {
+      font-family:HelveticaNeue-Regular,"Helvetica Neue Regular","Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-weight: 500;
+      text-align: left;
+      font-size: 1.1em;
+      margin: 20px 0 10px 50px;
+    }
+    ul.categories-list {
+      overflow: hidden;
+      list-style: none;
+      margin: 10px 50px 0 50px;
+    }
+    ul.categories-list li {
+      -webkit-transition: opacity 0.4s ease-in-out;
+      -moz-transition: opacity 0.4s ease-in-out;
+      -ms-transition: opacity 0.4s ease-in-out;
+      -o-transition: opacity 0.4s ease-in-out;
+      transition: opacity 0.4s ease-in-out;
+      opacity: 0;
+      float: left;
+      margin: 0 8px 8px 0;
+    }
+
+    ul.categories-list li a {
+      -webkit-transition: all 0.4s ease-in-out;
+      -moz-transition: all 0.4s ease-in-out;
+      -ms-transition: all 0.4s ease-in-out;
+      -o-transition: all 0.4s ease-in-out;
+      transition: all 0.4s ease-in-out;
+      font-size: 0.8em;
+      border:solid 2px rgba(255,255,255,0.2);
+      height: 44px;
+      line-height: 39px;
+      padding: 0 25px;
+      color: rgba(255,255,255,0.8);
+      -webkit-border-radius: 25px;
+      border-radius: 25px;
+      text-transform: uppercase;
+    }
+     ul.categories-list li.back {
+      opacity: 1 !important;
+     }
+    ul.categories-list li.back a {
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      background: url(img/back-arrow.svg) no-repeat -2px -2px #2b4156;
+      border-color: #2b4156;
+
+    }
+    ul.categories-list li.back a:hover {
+      background: url(img/back-arrow.svg) no-repeat -2px -2px #3b5771;
+      border-color: #3b5771;
+    
+  }
+  ul.categories-list li a:hover {
+     color: #FFF;
+     border:solid 2px rgba(255,255,255,0.8);
+  }
+ ul.categories-list li a.selected {
+    background: url('img/cat-checkmark.svg') no-repeat left top #4AC51D;
+    border-color: #4AC51D;
+    padding-left: 42px;
+    color: #fff;
+}
+.line {
+  display: block;
+  height: 8px;
+  background: #3b4fc1;
+background: -moz-linear-gradient(left, #3b4fc1 0%, #26d0ce 100%);
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,#3b4fc1), color-stop(100%,#26d0ce));
+background: -webkit-linear-gradient(left, #3b4fc1 0%,#26d0ce 100%);
+background: -o-linear-gradient(left, #3b4fc1 0%,#26d0ce 100%);
+background: -ms-linear-gradient(left, #3b4fc1 0%,#26d0ce 100%);
+background: linear-gradient(to right, #3b4fc1 0%,#26d0ce 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b4fc1', endColorstr='#26d0ce',GradientType=1 );
+}
+
+svg.cat-check {
+  width: 24px;
+  height: 24px;
+}
+
+a.next-btn  {
+  opacity: 0;
+  margin: 20px 0 0 80px;
+   -webkit-transition: all 0.5s ease-in-out;
+      -moz-transition: all 0.5s ease-in-out;
+      -ms-transition: all 0.5s ease-in-out;
+      -o-transition: all 0.5s ease-in-out;
+      transition: all 0.5s ease-in-out;
+  width: 300px;
+  min-width: 100px;
+  height: 44px;
+  line-height: 40px;
+  text-align: center;
+  background: #009cde;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  font-family:HelveticaNeue-Regular,"Helvetica Neue Regular","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 500;
+  font-weight: 0.6em;
+  color: #fff;
+}
+a.next-btn:hover {
+  background: #0092d1;
+}
+a.next-btn:active {
+  background: #0581b6;
+}
+  a.next-btn.show {
+    margin: 20px 0 0 50px;
+    opacity: 1 !important;
+  }
+  .shop-results {
+    margin: 0px 50px 0 50px; 
+  }
+
+  .loaded-results {
+       -webkit-transition: all 1.0s ease-in-out;
+      -moz-transition: all 1.0s ease-in-out;
+      -ms-transition: all 1.0s ease-in-out;
+      -o-transition: all 1.0s ease-in-out;
+      transition: all 1.0s ease-in-out;
+    height: 1px;
+    width: 100%;
+   
+  }
+    .loaded-results.grow {
+      height:270px;
+    }
+    
+    /*// offers*/
+    .items {
+      list-style: none;
+      margin-top: 40px;
+    }
+    .items li {
+      position: relative;
+      display: block;
+      height:230px;
+      width: 24%;
+      background: #fff;
+      float: left;
+      margin-left: 13px;
+      cursor: pointer;
+        -webkit-transition: all 0.6s ease-in-out;
+      -moz-transition: all 0.6s ease-in-out;
+      -ms-transition: all 0.6s ease-in-out;
+      -o-transition: all 0.6s ease-in-out;
+      transition: all 0.6s ease-in-out;
+      opacity: 0;
+    }
+     .items li.show-item {
+        opacity: 1;
+
+     }
+    .items li:first-child {
+      margin-left: 0;
+    }
+
+    .items li .branding {
+          -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      -ms-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      height: 180px;
+    }
+
+    /*/// branding */
+    .items li.macys .branding {
+      background: url(img/brand-macys.svg) no-repeat center center #DC2819;
+      background-size: 80%;
+    }
+    .items li.homedepot .branding {
+      background: url(img/brand-hd.svg) no-repeat center center #F96302;
+      background-size: 80%;
+    }
+    .items li.barnes .branding {
+      background: url(img/brand-bn.svg) no-repeat center center #5A7D55;
+      background-size: 80%;
+    }
+    .items li.target .branding {
+      background: url(img/brand-target.svg) no-repeat center center #B50000;
+      background-size: 80%;
+
+    }
+    .items li.nike .branding {
+      background: url(img/brand-nike.svg) no-repeat center center #3a3a3a;
+      background-size: 80%;
+    }
+    .items li.bestbuy .branding {
+      background: url(img/brand-bb.svg) no-repeat center center #223D62;
+      background-size: 80%;
+    }
+    .items li.wf .branding {
+      background: url(img/brand-wf.svg) no-repeat center center #3C521C;
+      background-size: 80%;
+    }
+    .items li.amc .branding {
+      background: url(img/brand-amc.svg) no-repeat center center #E3383F;
+      background-size: 80%;
+
+    }
+
+    .items li .branding:hover {
+      background-size: 105%;
+    }
+    
+    .items li .item-info {
+      height: 48px;
+      width: 100%;
+      background: url(img/forward-arrow.svg) no-repeat right center ;
+    }
+    .items li .item-info h3 {
+font-family:HelveticaNeue-Regular,"Helvetica Neue Regular","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 300;
+  font-size: 1.2em;
+  color: #333;
+  padding:14px 0 0 11px;
+    }
+    .items li .item-info strong {
+      color: #999;
+      padding: 8px 0 0 11px;
+      font-size: 0.8em;
+    }
+
+
+
+.close-icon {
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+
+ width: 2.2em;
+ height:2.2em;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+.close-icon:hover {
+  -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+}
+.close-icon path,
+.close-icon polygon,
+.close-icon rect {
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+.close-icon:hover path,
+.close-icon:hover polygon,
+.close-icon:hover rect {
+  /*fill: #C14445;*/
+}
+
+
+.item-container {
+  position: relative;
+  display: block;
+}
+.item-overlay {
+  
+    -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+/*  width:50%;*/
+  padding: 0;
+  opacity: 0;
+  position: fixed;
+  top:10%;
+  right: 23%;
+  bottom: 10%;
+  left: 23%;
+  background: #fff;
+
+  z-index: -100;
+
+}
+.item-overlay.show { 
+  opacity: 1;
+  position: fixed;
+  top:0;
+  right: 15%;
+  bottom: 0;
+  left: 15%;
+  z-index: 1000;
+}
+
+.item-template {
+
+}
+.item-template .top-brand  {
+  width: 100%;
+  height: 200px;
+}
+
+.item-template .top-brand.macys {
+      background: url(img/brand-macys.svg) no-repeat center center #DC2819;
+      background-size: 40%;
+  }
+.item-template .top-brand.hd {
+      background: url(img/brand-hd.svg) no-repeat center center #F96302;
+      background-size: 80%;
+    }
+.item-template .top-brand.bn {
+      background: url(img/brand-bn.svg) no-repeat center center #5A7D55;
+      background-size: 80%;
+    }
+.item-template .top-brand.target {
+      background: url(img/brand-target.svg) no-repeat center center #B50000;
+      background-size: 80%;
+
+    }
+
+
+  /* ///// OFFERS  ///// */
+
+  .offers {
+    width: 480px;
+    height: auto;
+    padding: 20px;
+    float: left;
+  }
+  .item-overlay .heading {
+    font-family:HelveticaNeue-Regular,"Helvetica Neue Regular","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 500;
+    font-size: 0.8em;
+    color: #6c7378;
+    text-transform: uppercase;
+    margin:5px 0 18px 0;
+  }
+  .offers .offer {
+    display: block;
+    width: 100%;
+    height: 170px;
+    border: solid 1px #d1d8dc;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .offers .offer .thumb {
+    width: 60px;
+    height:60px;
+    margin: 8px 0 0 8px;
+    float: left;
+  }
+  .offers .offer .thumb.macys {
+      background: url(img/brand-macys.svg) no-repeat center center #DC2819;
+      background-size: 90%;
+  }
+.offers .offer .merchant-name {
+  font-weight: 300;
+  font-size: 1.1em;
+  color: #2c2e2f;
+  margin: 8px 0 0 80px;
+}
+.offers .offer .useby {
+  font-weight: 600;
+  font-size: 0.7em;
+  color: #6c7378;
+  text-transform: uppercase;
+  margin: 8px 0 0 80px;
+}
+.offers .offer .howto {
+  font-weight: 300;
+  font-size: 0.8em;
+  color: #6c7378;
+  font-style:italic;
+  margin: 0 0 0 80px;
+}
+
+.offers .offer .offer-details {
+  clear: both;
+  font-weight: 300;
+  font-size: 1.3em;
+  line-height: 1.2em;
+  color: #2c2e2f;
+  margin: 12px 12px 0 10px;
+  
+}
+.offers .offer .exclusive {
+  position: absolute;
+  top: 9px;
+  right:9px;
+  width: 48px;
+}
+
+.offers .offer a.save-btn  {
+  display: inline-block;
+  margin: 16px 0 0 10px;
+   -webkit-transition: all 0.5s ease-in-out;
+      -moz-transition: all 0.5s ease-in-out;
+      -ms-transition: all 0.5s ease-in-out;
+      -o-transition: all 0.5s ease-in-out;
+      transition: all 0.5s ease-in-out;
+  width: 45.7%;
+  height: 34px;
+  line-height: 32px;
+  text-align: center;
+  background: #009cde;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  font-family:HelveticaNeue-Regular,"Helvetica Neue Regular","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 500;
+  font-size: 0.8em;
+  color: #fff;
+  cursor: pointer;
+}
+.offers .offer a.use-btn  {
+  display: inline-block;
+  margin: 16px 0 0 10px;
+   -webkit-transition: all 0.5s ease-in-out;
+      -moz-transition: all 0.5s ease-in-out;
+      -ms-transition: all 0.5s ease-in-out;
+      -o-transition: all 0.5s ease-in-out;
+      transition: all 0.5s ease-in-out;
+  width: 45.7%;
+  height: 34px;
+  line-height: 32px;
+  text-align: center;
+  background: #e1e7eb;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  font-family:HelveticaNeue-Regular,"Helvetica Neue Regular","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 500;
+  font-size: 0.8em;
+  color: #2c2e2f;
+  cursor: pointer;
+}
+
+  .locations {
+    width: 400px;
+    height: auto;
+    padding: 20px;
+    float: right;
+  }
+
+
+
+
+/* SEND MONEY */
+    .send-money {
+    background: #1a2937;
+
+ }
+ .send-money-content {
+
+  background: -webkit-linear-gradient(90deg, rgba(93,65,87,0.3) 10%, rgba(168,202,186,0.3) 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, rgba(93,65,87,0.3) 10%, rgba(168,202,186,0.3) 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, rgba(93,65,87,0.3) 10%, rgba(168,202,186,0.3) 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, rgba(93,65,87,0.3) 10%, rgba(168,202,186,0.3) 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, rgba(93,65,87,0.3) 10%, rgba(168,202,186,0.3) 90%); /* W3C */
+        
+
+
+   min-height:461px !important;
+      padding: 50px 20px 20px 10px;
+
+ }
+.user-dock {
+  position: absolute;
+  top:20px;
+  left:20px;
+  height:63px;
+  z-index: 5;
+  right: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.avatar {
+  float: left;
+  width: 45px;
+  height:45px;
+  display: block;
+  background: url(img/user-avatar.svg) no-repeat center center;
+   -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+}
+.welcome {
+   font-family:HelveticaNeue-Regular,"Helvetica Neue Regular","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 200;
+  font-size: 1.5em;
+  margin: 12px 0 0 60px;
+}
+
+</style>
+
+  <!-- Scripts -->
+  <script type="text/javascript" src='scripts/jquery-latest.min.js'></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+
+
+
+
+</head>
+<body>
+
+<div class="item-overlay">
+
+    <div class="item-container">
+    
+    <div class="item-template">
+      <div class="top-brand macys"></div>
+      <div class="offers">
+      <h2 class="heading">Featured Offers</h2>
+        
+        <!-- start offer -->
+        <div class="offer">
+          <img src="img/exclusive-tag.svg" class="exclusive">
+          <div class="thumb macys"></div>
+          <h3 class="merchant-name">Macy's</h3>
+          <h4 class="useby">Use By: 11/30/2014</h4>
+           <h4 class="howto">Online & In-store</h4>
+          <h2 class="offer-details">
+            Get $20 off at Macy's when you spend $100.
+          </h2>
+          <a class="save-btn">Save to Wallet</a> <a class="use-btn">Use Online</a>
+        </div>
+        <!-- end offer  -->
+
+        <!-- start offer -->
+        <div class="offer">
+          <img src="img/exclusive-tag.svg" class="exclusive">
+          <div class="thumb macys"></div>
+          <h3 class="merchant-name">Macy's</h3>
+          <h4 class="useby">Use By: 11/30/2014</h4>
+           <h4 class="howto">Online & In-store</h4>
+          <h2 class="offer-details">
+            Get $20 off at Macy's when you spend $100.
+          </h2>
+          <a class="save-btn">Save to Wallet</a> <a class="use-btn">Use Online</a>
+        </div>
+        <!-- end offer  -->
+
+      </div>
+    </div>
+
+    <div class="locations">
+    <h2 class="heading">Locations</h2>
+      
+    </div>
+
+      <!-- <img class="close-icon" src="img/close-icon.svg" /> -->
+      <svg viewBox="0 0 94 94" class="close-icon">
+
+    <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFF" d="M46.994,0.48c-25.695,0-46.525,20.831-46.525,46.525
+      c0,25.694,20.831,46.525,46.525,46.525c25.694,0,46.525-20.831,46.525-46.525C93.52,21.311,72.688,0.48,46.994,0.48z
+       M46.994,90.625c-24.089,0-43.617-19.529-43.617-43.617c0-24.091,19.528-43.619,43.617-43.619
+      c24.09,0,43.618,19.528,43.618,43.619C90.612,71.096,71.084,90.625,46.994,90.625z M65.57,26.372L46.994,44.949L28.417,26.372
+      l-2.058,2.055l18.578,18.578L26.359,65.584l2.056,2.057l18.579-18.578l18.578,18.578l2.057-2.057L49.051,47.006l18.578-18.579
+      L65.57,26.372z"/>
+
+</svg>
+
+
+      </div>
+
+  </div>
+
+
+<!-- <div class="engage-bar">
+  <div class="arrow-down"></div>
+</div> -->
+<div class="engage">
+ <div class="user-dock">
+    <div class="avatar"></div>
+    <h1 class="welcome">Welcome back, Kevin Flynn</h1>
+  </div>
+<div class="contain">
+<div class="shop-titles">
+  <h1 class="shop-title">Get started Shopping with PayPal now!</h1>
+  <h3 class="sub-text">Tell us a little bit about what you love to shop for:</h3>
+</div>
+<ul class="categories-list">
+  <li><a href="#" data-cat="Gift Cards">Gift Cards</a></li>
+  <li><a href="#" data-cat="Music">Music</a></li>
+  <li><a href="#" data-cat="Books">Books</a></li>
+  <li><a href="#" data-cat="Electronics">Electronics</a></li>
+  <li><a href="#" data-cat="Computers">Computers</a></li>
+  <li><a href="#" data-cat="Home Goods">Home Goods</a></li>
+  <li><a href="#" data-cat="Gardening">Gardening</a></li>
+  <li><a href="#" data-cat="Kids & Baby">Kids & Baby</a></li>
+  <li><a href="#" data-cat="Toys">Toys</a></li>
+  <li><a href="#" data-cat="Mens Fashion">Mens Fashion</a></li>
+  <li><a href="#" data-cat="Womans Fashion">Womans Fashion</a></li>
+  <li><a href="#" data-cat="Sport & Outdoors">Sport & Outdoors</a></li>
+  <li><a href="#" data-cat="Beauty">Beauty</a></li>
+  <li><a href="#" data-cat="Health">Health</a></li>
+  <li><a href="#" data-cat="Food & Beverage">Food & Beverage</a></li>
+  <li><a href="#" data-cat="Games">Games</a></li>
+  <li><a href="#" data-cat="Movies">Movies</a></li>
+  <li><a href="#" data-cat="Automotive">Automotive</a></li>
+  <li><a href="#" data-cat="Tools">Tools</a></li>
+</ul> 
+
+<a class="next-btn" href="#">next</a> 
+
+<div class="shop-results">
+    <div class="loaded-results">
+      <ul class="items">
+        <li class="nike">
+          <div class="branding"></div>
+          <div class="item-info">
+            <h3>Nike</h3>
+          </div>
+        </li>
+         <li class="bestbuy">
+          <div class="branding"></div>
+          <div class="item-info">
+            <h3>Best Buy</h3>
+          </div>
+        </li>
+        <li class="wf">
+          <div class="branding"></div>
+          <div class="item-info">
+            <h3>Whole Foods</h3>
+          </div>
+        </li>
+        <li class="amc">
+          <div class="branding"></div>
+          <div class="item-info">
+            <h3>AMC Theatres</h3>
+          </div>
+        </li>
+      <!--   <li class="kmart"></li>
+        <li class="homedepot"></li>
+        <li class="target"></li> -->
+      </ul>
+    </div>
+</div>
+</div>
+</div>
+<div class="line"></div>
+
+
+<div class="send-money">
+ <div class="send-money-content">
+   content
+ </div>
+</div>
+
+ <script>
+
+ $(document).ready(function(){
+
+ //localStorage.setItem('color', '')
+ //localStorage.setItem('islocked', 0);
+
+ if(localStorage.getItem('islocked') == 1) {
+    lockScreen(); 
+ }
+ 
+ if(!localStorage.getItem('color') == '') {
+    $('.gg-numbers').addClass(localStorage.getItem('color'));
+ }
+
+
+ window.scrollTo(0, 1);
+  var triggerEvent= "click"; // touchend for mobile device, click for normal web browser
+
+
+  $('.categories-list li').each(function(i) {
+
+    $(this).delay((i++) * 100).fadeTo(900, 1);
+
+  });
+
+
+
+    var c = 0;
+
+    $('.categories-list li a').on(triggerEvent,function(e){ 
+
+      var c = 1;
+      var cat = $(this).attr('data-cat');
+      $(this).toggleClass('selected');
+      $(this).parent().toggleClass('selected');
+
+      if (c == 1) {
+        $('.next-btn').addClass('show');
+      }
+
+      return false;
+
+    });
+
+
+    $('.next-btn').on(triggerEvent,function(e){ 
+
+    $(this).hide();
+
+     $('.categories-list li').not('.selected').hide();
+
+     // $('.categories-list').prepend('<li class="back"><a href="#"></a></li>');
+
+     // show results panel 
+    
+            $('.loaded-results').addClass('grow');
+     
+
+        setTimeout(function(){
+      
+        $('ul.items li').each(function(i) {
+       
+            $(this).delay((i++) * 100000).addClass('show-item');
+            
+        });
+
+    }, 1000);
+      
+    
+
+      return false;
+
+    });
+
+  $('body').on('click', 'li.back a', function(){
+
+     $('.next-btn').show();
+     $('.categories-list').find('li.back').remove();
+
+     $('.categories-list li').not('.selected').show();
+
+      $('.shop-results').hide();
+
+   
+
+      return false;
+
+  });
+
+
+
+  $('.items li').on(triggerEvent,function(e){
+    e.preventDefault();
+    
+    //var shot = $(this).attr('href');
+    
+    $('.item-overlay').addClass('show');
+  });
+
+
+  $('.item-overlay .close-icon').on(triggerEvent,function(e){
+    e.preventDefault();
+   
+    $('.item-overlay').removeClass('show');
+   
+    
+  });
+
+
+
+//end doc type
+  });
+
+
+  </script>
+
+</body>
+</html>
